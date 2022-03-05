@@ -7,16 +7,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Home Page"),
-          centerTitle: true,
-          leading: Icon(Icons.message),
-          actions: <Widget>[
-            IconButton(icon: Icon(Icons.access_alarm), onPressed: () {})
-          ],
-        ),
-      ),
+     home: SafeArea(
+       child: Scaffold(
+         backgroundColor: Colors.deepOrange,
+       ),
+     ),
     );
   }
 }
