@@ -7,49 +7,30 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: SafeArea(
-        child: Scaffold(
-          appBar: AppBar(
-            title: Text("Colom"),
-          ),
-          body: ListView(
-            children: <Widget>[
-              Column(
-                children: <Widget>[
-                  Container(
-                height: 200,
-                width: 500,
-                color: Colors.amber,
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Container(
-                height: 200,
-                width: 500,
-                color: Colors.deepOrange,
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Container(
-                height: 200,
-                width: 500,
-                color: Colors.amber,
-              ),
-              SizedBox(
-                width: 10,
-              ),
-              Container(
-                height: 200,
-                width: 500,
-                color: Colors.deepOrange,
-              )
-                ],
-              )
-            ],
-          ),
-        ),
+      home: Homepage(),
+    );
+  }
+}
+
+class Homepage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+
+    // height
+    var screenheight = MediaQuery.of(context).size.height;
+    var containerheight = screenheight/2;
+    // width
+    var screenwidth = MediaQuery.of(context).size.width;
+    var containerwidth = screenwidth/2;
+
+    return SafeArea(
+      child: Scaffold(
+        body: Center(
+          child: Container(
+            height: containerheight,
+            width: containerwidth,
+            color: Colors.amber,
+        )),
       ),
     );
   }
