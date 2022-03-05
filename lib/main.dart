@@ -9,17 +9,33 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: SafeArea(
         child: Scaffold(
-          appBar: AppBar(title: Text("App Bar")),
-          body: Container(
-            height: 200,
-            width: 400,
-            decoration: BoxDecoration(color: Colors.amber),
-            child: Text(
-              "Fluter App",
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.normal),
-            ),
+          appBar: AppBar(title: Text("Colom"),),
+            body: Row(children: <Widget>[
+              Container(
+                height: 200,
+                width: 150,
+                color: Colors.amber,
+              ),
+              SizedBox(width: 10,),
+              Container(
+                height: 200,
+                width: 150,
+                color: Colors.deepOrange,
+              ),
+              SizedBox(width: 10,),
+              Container(
+                height: 200,
+                width: 150,
+                color: Colors.amber,
+              ),
+              SizedBox(width: 10,),
+              Container(
+                height: 200,
+                width: 150,
+                color: Colors.amber,
+              )
+            ]),
           ),
-        ),
       ),
     );
   }
