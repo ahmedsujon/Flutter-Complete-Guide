@@ -1,31 +1,32 @@
+import 'package:first_app/page1.dart';
+import 'package:first_app/page2.dart';
+import 'package:first_app/page3.dart';
 import 'package:flutter/material.dart';
-import 'package:liquid_swipe/liquid_swipe.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  PageController _controller = PageController(
+    initialPage: 0,
+  );
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        body: Column(children: <Widget>[
-          Expanded(
-              flex: 1,
-              child: Container(
-                color: Colors.deepOrange,
-              )),
-              Expanded(
-              flex: 1,
-              child: Container(
-                color: Colors.green,
-              )),
-              Expanded(
-              flex: 1,
-              child: Container(
-                color: Colors.deepOrange,
-              )),
-
-        ]),
+        body: PageView(
+          scrollDirection: Axis.vertical,
+          controller: _controller,
+          children: <Widget>[
+            page1(),
+            page2(),
+            page3(),
+          ],
+        ),
       ),
     );
   }
