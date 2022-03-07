@@ -5,7 +5,7 @@ class school extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text("Three"),
+        child: Text("School Page"),
         ),
     );
   }

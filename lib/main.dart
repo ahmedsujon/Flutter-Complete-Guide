@@ -1,5 +1,6 @@
 import 'package:first_app/message.dart';
 import 'package:first_app/business.dart';
+import 'package:first_app/call.dart';
 import 'package:first_app/school.dart';
 import 'package:flutter/material.dart';
 
@@ -20,12 +21,14 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
+
 class _HomePageState extends State<HomePage> {
   int _selectedIndex = 0;
 
   final pages = [
     message(),
     business(),
+    call(),
     school(),
   ];
 
@@ -33,7 +36,9 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: pages[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar: BottomNavigationBar( 
+        selectedFontSize: 14,
+        iconSize: 25,
         currentIndex: _selectedIndex,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
@@ -44,6 +49,11 @@ class _HomePageState extends State<HomePage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.business),
             label: 'Business',
+            backgroundColor: Colors.green,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.call),
+            label: 'Call',
             backgroundColor: Colors.green,
           ),
           BottomNavigationBarItem(

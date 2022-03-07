@@ -5,7 +5,7 @@ class business extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text("Two"),
+        child: Text("Business Page", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),),
         ),
     );
   }
