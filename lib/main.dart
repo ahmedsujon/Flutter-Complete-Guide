@@ -6,18 +6,20 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
-    final pages = [
-      Container(color: Colors.green,),
-      Container(color: Colors.amber,),
-      Container(color: Colors.red,),
-      Container(color: Colors.blue,),
-    ];
-
     return MaterialApp(
       home: Scaffold(
-        body: LiquidSwipe(pages: pages),
-      ),
+          body: Center(
+          child: Card(
+            elevation: 10,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(bottomRight: Radius.circular(40)),
+            ),
+          child: Container(
+            height: 300,
+            width: 300,
+          ),
+        ),
+      )),
     );
   }
 }
