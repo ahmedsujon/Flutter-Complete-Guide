@@ -35,6 +35,19 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Welcome'),
+         actions: [
+            IconButton(
+            icon: const Icon(Icons.add_alert),
+            tooltip: 'Show Snackbar',
+            onPressed: () {
+              ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('This is a snackbar')));
+            },
+          ),
+          ],
+      ),
       body: pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar( 
         selectedFontSize: 14,
