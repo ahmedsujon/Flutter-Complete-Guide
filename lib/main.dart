@@ -1,5 +1,6 @@
-// ignore_for_file: deprecated_member_use
-
+import 'dart:async';
+import 'dart:io';
+import 'package:image_picker/image_picker.dart';
 import 'package:first_app/message.dart';
 import 'package:first_app/business.dart';
 import 'package:first_app/call.dart';
@@ -27,22 +28,33 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
 
 
+  Future CameraImage() async{
+    final ImagePicker _picker = ImagePicker();
+    final XFile? image = await _picker.pickImage(source: ImageSource.camera);
+    
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
-        body: Center(
-          child: Column(
+        body: Column(children: <Widget>[
+          Container(
+            height: 400,
+            color: Colors.indigo,9
+          ),
+           Divider(),
+          Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Text(, style: TextStyle(fontSize: 50),),
-              RaisedButton(onPressed: (){
-                
-              },
-              )
+              FloatingActionButton(onPressed: (){
+                CameraImage();
+              }, child: Icon(Icons.camera),),
+              SizedBox(width: 15,),
+              FloatingActionButton(onPressed: (){}, child: Icon(Icons.photo_library),),
             ],
-          ),
-        ),
+          )
+        ]),
       ),
     );
   }
