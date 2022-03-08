@@ -1,47 +1,56 @@
-// ignore: unused_import
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:first_app/business.dart';
-import 'package:first_app/call.dart';
-import 'package:first_app/message.dart';
-import 'package:first_app/school.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MaterialApp(
-      home: BottomNavBar(),
-    ));
+void main() => runApp(const MyApp());
 
-class BottomNavBar extends StatefulWidget {
-  @override
-  State<BottomNavBar> createState() => _BottomNavBarState();
-}
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
-class _BottomNavBarState extends State<BottomNavBar> {
-  var _page = 0;
-  final pages = [business(), call(), message(), school()];
+  static const String _title = 'Flutter Code Sample';
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: CurvedNavigationBar(
-          index: 0,
-          onTap: (index) {
-            setState(() {
-              _page = index;
-            });
-          },
-          items: [
-            Icon(
-              Icons.access_alarm,
-            ),
-            Icon(
-              Icons.ac_unit,
-            ),
-            Icon(Icons.accessible),
-            Icon(
-              Icons.favorite,
-            ),
-          ]),
-      body: pages[_page],
+    return MaterialApp(
+      title: _title,
+      home: Scaffold(
+        appBar: AppBar(title: const Text(_title)),
+        body: const MyStatefulWidget(),
+      ),
+    );
+  }
+}
+
+class MyStatefulWidget extends StatefulWidget {
+  const MyStatefulWidget({Key? key}) : super(key: key);
+
+  @override
+  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+}
+
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView.builder(
+      padding: const EdgeInsets.symmetric(vertical: 16),
+      itemBuilder: (BuildContext context, int index) {
+        return Dismissible(
+          key: ValueKey("ABC"),
+          background: Container(
+            color: Colors.green,
+            child: Icon(Icons.delete, color: Colors.red,),
+          ),
+          secondaryBackground: Container(
+            color: Colors.red,
+            child: Icon(Icons.add, color: Colors.green,),
+          ),
+          
+          child: ListTile(
+            title: Text("Hello World!"),
+            subtitle: Text("Sub Title Here!"),
+            trailing: Icon(Icons.ac_unit),
+          ),
+        );
+      },
     );
   }
 }
