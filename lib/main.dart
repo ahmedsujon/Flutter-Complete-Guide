@@ -16,7 +16,6 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-
   var _page = 0;
   final pages = [business(), call(), message(), school()];
 
@@ -37,9 +36,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
             Icon(
               Icons.ac_unit,
             ),
-            Icon(
-              Icons.accessible
-            ),
+            Icon(Icons.accessible),
             Icon(
               Icons.favorite,
             ),
