@@ -22,33 +22,19 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: RaisedButton(
-          onPressed: () {
-            showModalBottomSheet(context: context, builder: (context){
-              return Container(
-                height: 250,
-                child: Column(children: <Widget>[
-                  ListTile(
-                    title: Text("This is One"),
-                    subtitle: Text("this is sub title"),
-                    trailing: Icon(Icons.alarm),
-                  ),
-                  ListTile(
-                    title: Text("This is Two"),
-                    subtitle: Text("this is sub title"),
-                    trailing: Icon(Icons.alarm),
-                  ),
-                  ListTile(
-                    title: Text("This is Three"),
-                    subtitle: Text("this is sub title"),
-                    trailing: Icon(Icons.alarm),
-                  )
-                ]),
-              );
-            });
-          },
-          child: Text("Click Here"),
-        ),
+        child: RaisedButton(onPressed: (){
+          showDialog(context: context, builder: (context){
+            return AlertDialog(
+              title: Text("Alert"),
+              content: Text("This is Alert Dialog"),
+              actions: <Widget>[
+                RaisedButton(onPressed: (){
+                  Navigator.pop(context);
+                }, child: Text("Ok"),),
+              ],
+            );
+          });
+        }, child: Text("click"),),
       ),
     );
   }
