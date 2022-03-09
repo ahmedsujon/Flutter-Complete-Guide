@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -5,7 +7,7 @@ void main() => runApp(const MyApp());
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  static const String _title = 'Flutter Code Sample';
+  static const String _title = 'Welcome';
 
   @override
   Widget build(BuildContext context) {
@@ -30,27 +32,19 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      padding: const EdgeInsets.symmetric(vertical: 16),
-      itemBuilder: (BuildContext context, int index) {
-        return Dismissible(
-          key: ValueKey("ABC"),
-          background: Container(
-            color: Colors.green,
-            child: Icon(Icons.delete, color: Colors.red,),
+    return SafeArea(
+      child: Scaffold(
+        body: Center(
+          child: Transform.rotate(
+            angle: pi/4,
+            child: Container(
+              height: 250,
+              width: 250,
+              color: Colors.deepPurple,
+            ),
           ),
-          secondaryBackground: Container(
-            color: Colors.red,
-            child: Icon(Icons.add, color: Colors.green,),
-          ),
-          
-          child: ListTile(
-            title: Text("Hello World!"),
-            subtitle: Text("Sub Title Here!"),
-            trailing: Icon(Icons.ac_unit),
-          ),
-        );
-      },
+        ),
+      ),
     );
   }
 }
